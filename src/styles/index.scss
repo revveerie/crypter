@@ -7,9 +7,22 @@
 @import './variables.scss';
 
 // INITIAL
+.wrapper {
+    height: 100%;
+    background-color: #221F4B;
+}
+#app {
+    display: flex;
+    height: 100%;
+    @media(max-width: 600px) {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
 
 // FILES
 @import 'components/App/App';
+@import 'components/Sidebar/Sidebar';
 @import 'components/Homepage/Homepage';
 @import 'components/NotFoundPage/NotFoundPage';
 @import 'components/Exchanges/ExchangesApp';
