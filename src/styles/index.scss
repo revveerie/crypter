@@ -1,0 +1,17 @@
+@import './reset.scss';
+
+// FONTS
+@import './fonts.scss';
+
+// VARIABLES
+@import './variables.scss';
+
+// INITIAL
+
+// FILES
+@import 'components/App/App';
+@import 'components/Homepage/Homepage';
+@import 'components/NotFoundPage/NotFoundPage';
+@import 'components/Exchanges/ExchangesApp';
+@import 'components/Cryptocaurrency/CryptocaurrencyApp';
+@import 'components/News/NewsApp';
