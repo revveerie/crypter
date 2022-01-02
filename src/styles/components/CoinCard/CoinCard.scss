@@ -1,13 +1,32 @@
 .coin-card {
     padding: 15px;
-    border: 1px solid #312F62;
+    border: 1px solid #E2E2E8;
     color: #fff;
     display: flex;
     border-radius: 10px;
     cursor: pointer;
     transition: 300ms;
     &:hover {
-        background: #13ADE2;
+        background: #53B9EA;
+        border: 1px solid #53B9EA;
+        .coin-card__price {
+            color: #fff;
+        }
+        .coin-card__symbol {
+            color: #fff;
+        }
+        .change-green {
+            color: #fff;
+            &::before {
+                content: url('../assets/images/arrow-up-white.svg');
+            }
+        }
+        .change-red {
+            color: #fff;
+            &::before {
+                content: url('../assets/images/arrow-down-white.svg');
+            }
+        }
     }
     &__wrapper {
         display: grid;
@@ -55,36 +74,41 @@
         font-family: 'Helvetica';
         font-weight: 400;
         font-size: 20px;
+        color: #4C4C66;
+        transition: 300ms;
     }
     &__symbol {
         font-family: 'Helvetica';
         font-weight: 500;
         opacity: 0.5;
         font-size: 14px;
-    }
-    &__change {
-
+        color: #4C4C66;
+        transition: 300ms;
     }
 }
 .change-red {
     color: #E3507A;
     position: relative;
     padding: 0 0 0 20px;
+    transition: 300ms;
     &::before {
         content: url('../assets/images/red-arrow.svg');
         position: absolute;
         top: 0;
         left: 0;
+        transition: 300ms;
     }
 }
 .change-green {
-    color: #50E3C2;
+    color: #2BB596;
     position: relative;
     padding: 0 0 0 20px;
+    transition: 300ms;
     &::before {
         content: url('../assets/images/green-arrow.svg');
         position: absolute;
         top: 0;
         left: 0;
+        transition: 300ms;
     }
 }

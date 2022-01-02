@@ -1,7 +1,7 @@
 .homepage {
     padding: 15px;
     margin: 0 0 0 273px;
-    background-color: #221F4B;
+    width: 100%;
     @media (max-width: 1024px) {
         margin: 0 0 0 75px;
     }
@@ -15,7 +15,7 @@
     &__title-text {
         font-family: "Helvetica", sans-serif;
         font-weight: 500;
-        color: #fff;
+        color: #4C4C66;
         font-size: 30px;
     }
 }

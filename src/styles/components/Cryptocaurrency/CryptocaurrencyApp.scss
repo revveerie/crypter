@@ -1,7 +1,7 @@
 .cryptocurrencies {
     padding: 15px;
     margin: 0 0 0 273px;
-    background-color: #221F4B;
+    width: 100%;
     @media (max-width: 1024px) {
         margin: 0 0 0 75px;
     }
@@ -20,9 +20,9 @@
     width: 100%;
     max-width: 500px;
     background: transparent;
-    border: 1px solid #312F62;
+    border: 1px solid #E2E2E8;
     border-radius: 40px;
     padding: 5px 10px;
     font-family: 'Helvetica';
-    color: #fff;
+    color: #4C4C66;
 }
