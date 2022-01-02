@@ -7,8 +7,10 @@
 @import './variables.scss';
 
 // INITIAL
+body {
+    background-color: #221F4B;
+}
 .wrapper {
-    height: 100%;
     background-color: #221F4B;
 }
 #app {
@@ -23,6 +25,8 @@
 // FILES
 @import 'components/App/App';
 @import 'components/Sidebar/Sidebar';
+@import 'components/CoinCard/CoinCard';
+@import 'components/StatCard/StatCard';
 @import 'components/Homepage/Homepage';
 @import 'components/NotFoundPage/NotFoundPage';
 @import 'components/Exchanges/ExchangesApp';

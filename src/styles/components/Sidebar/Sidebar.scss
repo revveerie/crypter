@@ -2,6 +2,7 @@
     width: 273px;
     height: 100%;
     background: linear-gradient(180deg, #262250 0%, #1B1942 57.44%, #17163B 100%);
+    position: fixed;
     @media (max-width: 1024px) {
         width: 75px;
     }
@@ -13,6 +14,8 @@
         align-items: center;
         justify-content: center;
         background: linear-gradient(-20deg, #262250 0%, #1B1942 57.44%, #17163B 100%);
+        bottom: 0;
+        z-index: 5;
     }
     &__logo-wrapper {
         display: flex;
