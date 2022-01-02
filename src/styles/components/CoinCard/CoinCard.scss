@@ -2,13 +2,15 @@
     padding: 15px;
     border: 1px solid #E2E2E8;
     color: #fff;
-    display: flex;
     border-radius: 10px;
     cursor: pointer;
     transition: 300ms;
     &:hover {
         background: #53B9EA;
         border: 1px solid #53B9EA;
+        .coin-card__name {
+            color: #fff;
+        }
         .coin-card__price {
             color: #fff;
         }
@@ -51,6 +53,9 @@
             grid-template-columns: 1fr;
         }
     }
+    &__info-wrapper {
+        display: flex;
+    }
     &__icon {
         margin: 0 25px 0 0;
     }
@@ -68,6 +73,14 @@
         &:not(:last-child) {
             margin: 0 0 10px 0;
         }
+    }
+    &__name {
+        color: #4C4C66;
+        font-family: 'Helvetica';
+        font-weight: 500;
+        margin: 0 0 15px 0;
+        font-size: 18px;
+        transition: 300ms;
     }
     &__price {
         margin: 0 10px 0 0;

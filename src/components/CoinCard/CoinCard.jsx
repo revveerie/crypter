@@ -17,17 +17,20 @@ const CoinCard = ({ name, iconUrl, price, change, symbol }) => {
         });
     });
     return (
-        <>
-            <div className="coin-card__icon">
-                <img src={iconUrl} alt={name} className="coin-card__image" />
-            </div>
-            <div className="coin-card__info">
-                <div className="coin-card__info-row">
-                    <div className="coin-card__price">{price}</div>
-                    <div className="coin-card__symbol">{symbol}</div>
+        <> 
+            <div className="coin-card__name">{name}</div>
+            <div className="coin-card__info-wrapper">
+                <div className="coin-card__icon">
+                    <img src={iconUrl} alt={name} className="coin-card__image" />
                 </div>
-                 <div className="coin-card__info-row">
-                    <div className="coin-card__change">{change}</div>
+                <div className="coin-card__info">
+                    <div className="coin-card__info-row">
+                        <div className="coin-card__price">{price}</div>
+                        <div className="coin-card__symbol">{symbol}</div>
+                    </div>
+                    <div className="coin-card__info-row">
+                        <div className="coin-card__change">{change}</div>
+                    </div>
                 </div>
             </div>
         </>
