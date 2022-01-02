@@ -1,7 +1,10 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
+import navigationLinkClick from '../../helpers/menu.jsx';
+
 const Sidebar = () => {
+    navigationLinkClick();
     return (
         <header className='header'>
             <div className="header__logo-wrapper">
