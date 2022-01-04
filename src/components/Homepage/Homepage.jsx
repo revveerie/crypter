@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 
 import { optionsCoins, optionsNews } from '../../helpers/axiosOptions.js';
-import { numberFormat } from "../../helpers/numberFormat.js";
+import numberFormat from "../../helpers/numberFormat.js";
 import CoinCard from '../CoinCard/CoinCard.jsx';
 import NewsCard from '../NewsCard/NewsCard.jsx';
 
@@ -88,7 +88,7 @@ const Homepage = () => {
                                 <p className="stat-card__title-text">Total market cap</p>
                             </div>
                             <div className="stat-card__value">
-                                <p className="stat-card__value-text">{statsList.totalMarketCap}</p>
+                                <p className="stat-card__value-text">{numberFormat(Number(statsList.totalMarketCap), 1)}</p>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@ const Homepage = () => {
                                 <p className="stat-card__title-text">Total cryptvolume</p>
                             </div>
                             <div className="stat-card__value">
-                                <p className="stat-card__value-text">{statsList.total24hVolume}</p>
+                                <p className="stat-card__value-text">{numberFormat(Number(statsList.total24hVolume), 1)}</p>
                             </div>
                         </div>
                     </div>

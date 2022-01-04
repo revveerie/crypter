@@ -20,6 +20,7 @@ export const optionsNews = {
         textFormat: 'Raw',
         freshness: 'Week',
         sortBy: 'Date',
+        setLang: 'EN'
     },
     headers: {
         'accept-language': 'en',

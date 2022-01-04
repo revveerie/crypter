@@ -10,10 +10,11 @@ const NewsCard = ({ newsName, newsUrl, newsDescription, publishedDate }) => {
                 <div className="news-card__date">
                     <p className="news-card__date-text">{publishedDate}</p>
                 </div>
+                <div className='news-card__description'>
+                    <p className='news-card__description-text'>{newsDescription}</p>
+                </div>
             </a>
-            <div className='news-card__description'>
-                <p className='news-card__description-text'>{newsDescription}</p>
-            </div>
+            
         </>
     )
 }

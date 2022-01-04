@@ -4,7 +4,6 @@
     border-radius: 10px;
     cursor: pointer;
     transition: 300ms;
-    // background: #53B9EA;
     height: 150px;
     position: relative;
     overflow: hidden;
@@ -13,8 +12,8 @@
         .news-card__description {
             transform: translate(0, 0);
             opacity: 1;
-        visibility: visible;
-        z-index: 1;
+            visibility: visible;
+            z-index: 1;
         }
         .news-card__title {
             opacity: 0;
