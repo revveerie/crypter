@@ -1,21 +1,13 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+
+import coinChangeColor from '../../helpers/coinChangeColor.js';
 
 const CoinCard = ({ name, iconUrl, price, change, symbol }) => {
-    price = Number(price).toFixed(2);
     useEffect(() => {
-        change = Number(change);
-        let coinChange = document.querySelectorAll('.coin-card__change');
-        coinChange.forEach((coinChange) => {
-            let coinChangeValue = Number(coinChange.textContent);
-            if (coinChangeValue < 0) {
-                coinChange.classList.add('change-red');
-            }
-            else {
-                coinChange.classList.add('change-green');
-            }
-        });
+        coinChangeColor();
     });
+    
     return (
         <> 
             <div className="coin-card__name">{name}</div>
@@ -25,7 +17,7 @@ const CoinCard = ({ name, iconUrl, price, change, symbol }) => {
                 </div>
                 <div className="coin-card__info">
                     <div className="coin-card__info-row">
-                        <div className="coin-card__price">{price}</div>
+                        <div className="coin-card__price">{Number(price).toFixed(2)}</div>
                         <div className="coin-card__symbol">{symbol}</div>
                     </div>
                     <div className="coin-card__info-row">

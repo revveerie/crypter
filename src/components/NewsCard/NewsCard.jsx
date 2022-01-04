@@ -1,7 +1,6 @@
 import React from "react";
-import { useState, useEffect } from "react";
 
-const NewsCard = ({ newsName, newsUrl, newsDescription, providerName, providerUrl, publishedDate }) => {
+const NewsCard = ({ newsName, newsUrl, newsDescription, publishedDate }) => {
     return (
         <>
             <a href={newsUrl} className="news-card__link" target="_blank">

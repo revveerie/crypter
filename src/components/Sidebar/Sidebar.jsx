@@ -1,10 +1,14 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
-import navigationLinkClick from '../../helpers/menu.jsx';
+import navigationLinkClick from '../../helpers/menu.js';
 
 const Sidebar = () => {
-    navigationLinkClick();
+    useEffect(() => {
+        navigationLinkClick();
+    });
+
     return (
         <header className='header'>
             <div className="header__logo-wrapper">

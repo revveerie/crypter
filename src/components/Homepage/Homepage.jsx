@@ -2,69 +2,20 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import { optionsCoins, optionsNews } from '../../helpers/axiosOptions.js';
+import { numberFormat } from "../../helpers/numberFormat.js";
 import CoinCard from '../CoinCard/CoinCard.jsx';
 import NewsCard from '../NewsCard/NewsCard.jsx';
 
 const Homepage = () => {
-
     const [coinList, setCoinList] = useState([]);
     const [statsList, setStatsList] = useState([]);
     const [newsList, setNewsList] = useState([]);
 
-    function nFormatter(num, digits) {
-    
-        const lookup = [
-            { value: 1, symbol: '' },
-            { value: 1e3, symbol: 'k' },
-            { value: 1e6, symbol: 'M' },
-            { value: 1e9, symbol: 'B' },
-            { value: 1e12, symbol: 'T' },
-            { value: 1e15, symbol: 'P' },
-            { value: 1e18, symbol: 'E' }
-        ];
-    
-        const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-    
-        const item = lookup.slice().reverse().find(function (item) {
-            return num >= item.value;
-        });
-    
-        return item ? (num / item.value).toFixed(digits).replace(rx, '$1') + item.symbol : '0';
-    }
+    optionsCoins.params.limit = '10';
+    optionsNews.params.count = '10';
 
     useEffect(() => {
-        const optionsCoins = {
-            method: 'GET',
-            url: 'https://coinranking1.p.rapidapi.com/coins',
-            params: {
-                timePeriod: '24h',
-                limit: '10',
-                offset: '0'
-            },
-            headers: {
-              'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-              'x-rapidapi-key': '3327c598bbmsh9ee4085f61aad91p18cb75jsncdaeac2a2d8f'
-            }
-          };
-
-        const optionsNews = {
-            method: 'GET',
-            url: 'https://bing-news-search1.p.rapidapi.com/news/search',
-            params: {
-                q: 'Cryptocurrencies',
-                safeSearch: 'Moderate',
-                textFormat: 'Raw',
-                freshness: 'Week',
-                count: '10',
-                sortBy: 'Date',
-            },
-            headers: {
-                'accept-language': 'en',
-                'x-bingapis-sdk': 'true',
-                'x-rapidapi-host': 'bing-news-search1.p.rapidapi.com',
-                'x-rapidapi-key': 'dbd484c3camshda218e5f7671c8dp17ca79jsn03298ac7b16b'
-            }
-          };
         axios.request(optionsCoins).then(function (response) {
             setCoinList(response.data.data.coins);
             setStatsList(response.data.data.stats);
@@ -136,7 +87,7 @@ const Homepage = () => {
                                 <p className="stat-card__title-text">Total market cap</p>
                             </div>
                             <div className="stat-card__value">
-                                <p className="stat-card__value-text">{nFormatter(Number(statsList.totalMarketCap), 1)}</p>
+                                <p className="stat-card__value-text">{statsList.totalMarketCap}</p>
                             </div>
                         </div>
                     </div>
@@ -149,7 +100,7 @@ const Homepage = () => {
                                 <p className="stat-card__title-text">Total cryptvolume</p>
                             </div>
                             <div className="stat-card__value">
-                                <p className="stat-card__value-text">{nFormatter(Number(statsList.total24hVolume), 1)}</p>
+                                <p className="stat-card__value-text">{statsList.total24hVolume}</p>
                             </div>
                         </div>
                     </div>
