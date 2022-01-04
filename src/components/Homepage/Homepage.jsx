@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import axios from "axios";
 
 import { optionsCoins, optionsNews } from '../../helpers/axiosOptions.js';
@@ -109,6 +110,9 @@ const Homepage = () => {
                     <h2 className="homepage__title-text">
                         Top 10 coins
                     </h2>
+                    <div className="homepage__link-wrapper">
+                        <Link to='/Cryptocurrencies' className='homepage__link homepage__link-coins'>All coins</Link>
+                    </div>
                 </div>
                 <div className="coin-card__wrapper">
                     {
@@ -125,6 +129,9 @@ const Homepage = () => {
                     <h2 className="homepage__title-text">
                         News
                     </h2>
+                    <div className="homepage__link-wrapper">
+                        <Link to='/News' className='homepage__link homepage__link-news'>All news</Link>
+                    </div>
                 </div>
                 <div className="news-card__wrapper">
                     {

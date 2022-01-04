@@ -11,12 +11,34 @@
     }
     &__title {
         margin: 0 0 30px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media(max-width: 420px) {
+            flex-direction: column;
+            align-items: start;
+        }
     }
     &__title-text {
         font-family: "Helvetica", sans-serif;
         font-weight: 500;
         color: #4C4C66;
         font-size: 30px;
+        @media(max-width: 420px) {
+            margin: 0 0 25px 0;
+        }
+    }
+    &__link {
+        background: linear-gradient(136.67deg, #FF409A 8.34%, #C438EF 95.26%);
+        mix-blend-mode: normal;
+        opacity: 0.8;
+        border-radius: 25px;
+        padding: 10px;
+        color: #fff;
+        transition: 300ms;
+        &:hover {
+            box-shadow: 0px 0px 42px rgba(243, 24, 115, .6);
+        }
     }
 }
 .stat-card {

@@ -4,11 +4,12 @@
     border-radius: 10px;
     cursor: pointer;
     transition: 300ms;
-    background: #53B9EA;
+    // background: #53B9EA;
     height: 150px;
     position: relative;
     overflow: hidden;
     &:hover {
+        background: #53B9EA;
         .news-card__description {
             transform: translate(0, 0);
             opacity: 1;
@@ -48,7 +49,7 @@
         transition: 300ms;
     }
     &__title-text {
-        color: #fff;
+        color: #4C4C66;
         font-family: 'Helvetica';
         font-weight: 500;
         margin: 0 0 15px 0;
@@ -58,7 +59,7 @@
         transition: 300ms;
     }
     &__date-text {
-        color: #fff;
+        color: #4C4C66;
         font-family: 'Helvetica';
         font-weight: 500;
         opacity: 0.5;
