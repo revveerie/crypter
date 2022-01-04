@@ -1,0 +1,89 @@
+.news-card {
+    padding: 15px;
+    border: 1px solid #E2E2E8;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 300ms;
+    background: #53B9EA;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+        .news-card__description {
+            transform: translate(0, 0);
+            opacity: 1;
+        visibility: visible;
+        z-index: 1;
+        }
+        .news-card__title {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .news-card__date {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 20px;
+        @media(max-width: 1770px) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media(max-width: 1440px) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media(max-width: 750px) {
+            grid-template-columns: 1fr;
+        }
+    }
+    &__link {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+    &__title {
+        transition: 300ms;
+    }
+    &__title-text {
+        color: #fff;
+        font-family: 'Helvetica';
+        font-weight: 500;
+        margin: 0 0 15px 0;
+        font-size: 18px;
+    }
+    &__date {
+        transition: 300ms;
+    }
+    &__date-text {
+        color: #fff;
+        font-family: 'Helvetica';
+        font-weight: 500;
+        opacity: 0.5;
+        font-size: 14px;
+    }
+    &__description {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 15px;
+        transform: translate(-100%, 0);
+        transition: 300ms;
+        opacity: 0;
+        visibility: hidden;
+        z-index: -1;
+    }
+    &__description-text {
+        color: #fff;
+        font-family: 'Helvetica';
+        font-weight: 400;
+        margin: 0 0 15px 0;
+        font-size: 18px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
