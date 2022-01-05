@@ -32,7 +32,6 @@ const NewsApp = () => {
                                         newsName={news.name}
                                         newsUrl={news.url}
                                         newsDescription={news.description}
-                                        providerName={news.provider[0].name}
                                         publishedDate={news.datePublished.substring(0, 10)+' '+news.datePublished.substring(11, 16)}      
                                     />
                                 </div>

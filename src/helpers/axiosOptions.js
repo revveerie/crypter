@@ -26,7 +26,7 @@ export const optionsNews = {
         'accept-language': 'en',
         'x-bingapis-sdk': 'true',
         'x-rapidapi-host': 'bing-news-search1.p.rapidapi.com',
-        'x-rapidapi-key': 'dbd484c3camshda218e5f7671c8dp17ca79jsn03298ac7b16b'
+        'x-rapidapi-key': '1b92fc6189mshf13b73eb71a746ap1ac9eajsn89eeeed1eb8f'
     }
 };
 
