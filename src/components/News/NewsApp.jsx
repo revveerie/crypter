@@ -7,15 +7,17 @@ import NewsCard from '../NewsCard/NewsCard.jsx';
 
 const NewsApp = () => {
     const [newsList, setNewsList] = useState([]);
+    let cleanupFunction = false;
 
     optionsNews.params.count = '30';
 
     useEffect(() => {
         axios.request(optionsNews).then(function (response) {
-            setNewsList(response.data.value);
+            if(!cleanupFunction) setNewsList(response.data.value);
         }).catch(function (error) {
-                console.error(error);
+            console.error(error);
         });
+        return () => cleanupFunction = true;
     }, []);
 
     return (

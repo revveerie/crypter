@@ -8,15 +8,17 @@ import CoinCard from '../CoinCard/CoinCard.jsx';
 const CryptocurrenciesApp = () => {
     const [inputValue, setInputValue] = useState('');
     const [coinList, setCoinList] = useState([]);
+    let cleanupFunction = false;
 
     optionsCoins.params.limit = '100';
 
     useEffect(() => {
-          axios.request(optionsCoins).then(function (response) {
-                setCoinList(response.data.data.coins);
-          }).catch(function (error) {
-              console.error(error);
-          });
+        axios.request(optionsCoins).then(function (response) {
+            if(!cleanupFunction) setCoinList(response.data.data.coins);
+        }).catch(function (error) {
+            console.error(error);
+        });
+        return () => cleanupFunction = true;
     }, []);
 
     const card = coinList.filter((coin) => {

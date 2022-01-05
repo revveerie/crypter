@@ -12,23 +12,25 @@ const Homepage = () => {
     const [coinList, setCoinList] = useState([]);
     const [statsList, setStatsList] = useState([]);
     const [newsList, setNewsList] = useState([]);
+    let cleanupFunction = false;
 
     optionsCoins.params.limit = '10';
     optionsNews.params.count = '10';
 
     useEffect(() => {
         axios.request(optionsCoins).then(function (response) {
-            setCoinList(response.data.data.coins);
-            setStatsList(response.data.data.stats);
+            if(!cleanupFunction) setCoinList(response.data.data.coins);
+            if(!cleanupFunction) setStatsList(response.data.data.stats);
         }).catch(function (error) {
             console.error(error);
         });
 
         axios.request(optionsNews).then(function (response) {
-            setNewsList(response.data.value);
+            if(!cleanupFunction) setNewsList(response.data.value);
         }).catch(function (error) {
-                console.error(error);
+            console.error(error);
         });
+        return () => cleanupFunction = true;
     }, []);
 
     return (

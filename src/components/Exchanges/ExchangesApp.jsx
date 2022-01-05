@@ -4,33 +4,19 @@ import { useState, useEffect } from "react";
 
 import numberFormat from "../../helpers/numberFormat.js";
 import ExchangeCard from '../ExchangeCard/ExchangeCard.jsx';
+import { optionsExchange } from '../../helpers/axiosOptions.js';
 
 const ExchangesApp = () => {
-
     const [exchangeList, setExchangeList] = useState([]);
+    let cleanupFunction = false;
       
-    useEffect(() => {
-        const options = {
-            method: 'GET',
-            url: 'https://coinranking1.p.rapidapi.com/exchange/-zdvbieRdZ/coins',
-            params: {
-              referenceCurrencyUuid: 'yhjMzLPhuIDl',
-              limit: '100',
-              offset: '0',
-              orderBy: '24hVolume',
-              orderDirection: 'desc'
-            },
-            headers: {
-              'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-              'x-rapidapi-key': '3327c598bbmsh9ee4085f61aad91p18cb75jsncdaeac2a2d8f'
-            }
-        };
-          
-        axios.request(options).then(function (response) {
-            setExchangeList(response.data.data.coins);
+    useEffect(() => {   
+        axios.request(optionsExchange).then(function (response) {
+            if(!cleanupFunction) setExchangeList(response.data.data.coins);
         }).catch(function (error) {
             console.error(error);
         });
+        return () => cleanupFunction = true;
     }, []);
 
     return (
@@ -58,7 +44,6 @@ const ExchangesApp = () => {
                             </div>
                         </div>
                     </div>
-                    
                     {
                         exchangeList.map((exchange, index) => {
                             return (
@@ -75,7 +60,6 @@ const ExchangesApp = () => {
                         })
                     }
                 </div>
-            
             </div>
         </>
     )

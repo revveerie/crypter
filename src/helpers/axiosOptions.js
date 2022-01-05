@@ -29,3 +29,19 @@ export const optionsNews = {
         'x-rapidapi-key': 'dbd484c3camshda218e5f7671c8dp17ca79jsn03298ac7b16b'
     }
 };
+
+export const optionsExchange = {
+    method: 'GET',
+    url: 'https://coinranking1.p.rapidapi.com/exchange/-zdvbieRdZ/coins',
+    params: {
+      referenceCurrencyUuid: 'yhjMzLPhuIDl',
+      limit: '100',
+      offset: '0',
+      orderBy: '24hVolume',
+      orderDirection: 'desc'
+    },
+    headers: {
+      'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
+      'x-rapidapi-key': '3327c598bbmsh9ee4085f61aad91p18cb75jsncdaeac2a2d8f'
+    }
+};
