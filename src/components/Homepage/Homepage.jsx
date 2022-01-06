@@ -100,7 +100,7 @@ const Homepage = () => {
                         </div>
                         <div className="stat-card__info">
                             <div className="stat-card__title">
-                                <p className="stat-card__title-text">Total cryptvolume</p>
+                                <p className="stat-card__title-text">24h volume</p>
                             </div>
                             <div className="stat-card__value">
                                 <p className="stat-card__value-text">{numberFormat(Number(statsList.total24hVolume), 1)}</p>

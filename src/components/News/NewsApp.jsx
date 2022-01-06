@@ -1,15 +1,29 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams } from 'react-router-dom';
 
 import { optionsNews } from '../../helpers/axiosOptions.js';
 import NewsCard from '../NewsCard/NewsCard.jsx';
 
 const NewsApp = () => {
+    const { search } = useParams();
     const [newsList, setNewsList] = useState([]);
+    const [searchNewsRequest, setSearchNewsRequest] = useState(search || 'Cryptocurrencies');
+    const [searchCoinMask, setSearchCoinMask] = useState('');
     let cleanupFunction = false;
 
-    optionsNews.params.count = '30';
+    function itemClickHandler(){
+        let value = document.querySelector('#search-input').value;
+        setSearchNewsRequest(value);
+    }
+
+    optionsNews.params.count = '10';
+    optionsNews.params.q = searchNewsRequest;
+
+    useEffect(()=>{
+        setSearchNewsRequest(search || 'Cryptocurrencies');
+    }, [search])
 
     useEffect(() => {
         axios.request(optionsNews).then(function (response) {
@@ -17,14 +31,24 @@ const NewsApp = () => {
         }).catch(function (error) {
             console.error(error);
         });
-        return () => cleanupFunction = true;
-    }, []);
+        return () => cleanupFunction = true;   
+    }, [searchNewsRequest]);
 
     return (
         <>
             <div className='news'>
+                    <div className="news__input">
+                        <input
+                            id='search-input'
+                            type='text'
+                            placeholder='Coin news'
+                            value={searchCoinMask}
+                            onChange={(event) => setSearchCoinMask(event.target.value)}
+                        />
+                        <button onClick={itemClickHandler} id="search-button">Search</button>
+                    </div>
                 <div className="news-card__wrapper">
-                    {
+                    { newsList.length !== 0 ?
                         newsList.map((news, index) => {
                             return (
                                 <div key={index} className='news-card'>
@@ -36,7 +60,13 @@ const NewsApp = () => {
                                     />
                                 </div>
                             )
-                        })
+                    })
+                    : 
+                    <div className="news__error">
+                        <p className='news__error-msg'>
+                            There is no news about this coin
+                        </p>
+                    </div>
                     }
                 </div>
             </div>

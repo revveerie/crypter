@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 const ExchangeCard = ({ rank, name, numberOfMarkets , volume24, iconUrl }) => {
     return (
@@ -27,6 +28,13 @@ const ExchangeCard = ({ rank, name, numberOfMarkets , volume24, iconUrl }) => {
             </div>
         </>
     )
+}
+ExchangeCard.propTypes = {
+    rank: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    numberOfMarkets: PropTypes.number.isRequired,
+    volume24: PropTypes.string.isRequired,
+    iconUrl: PropTypes.string.isRequired,
 }
 
 export default ExchangeCard;

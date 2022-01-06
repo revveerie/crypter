@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import PropTypes from 'prop-types';
 
 import coinChangeColor from '../../helpers/coinChangeColor.js';
 
@@ -10,7 +11,7 @@ const CoinCard = ({ name, iconUrl, price, change, symbol, coinrankingUrl }) => {
     
     return (
         <>
-            <a href={coinrankingUrl} className="coin-card__link" target="_blank">
+            <a href={coinrankingUrl} className="coin-card__link" target="_blank" rel="noreferrer">
                 <div className="coin-card__name">{name}</div>
                 <div className="coin-card__info-wrapper">
                     <div className="coin-card__icon">
@@ -29,6 +30,14 @@ const CoinCard = ({ name, iconUrl, price, change, symbol, coinrankingUrl }) => {
             </a> 
         </>
     )
+}
+CoinCard.propTypes = {
+    name: PropTypes.string.isRequired,
+    iconUrl: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    change: PropTypes.string.isRequired,
+    symbol: PropTypes.string.isRequired,
+    coinrankingUrl: PropTypes.string.isRequired,
 }
 
 export default CoinCard;

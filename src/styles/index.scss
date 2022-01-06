@@ -7,6 +7,9 @@
 @import './variables.scss';
 
 // INITIAL
+.wrapper {
+    height: 100%;
+}
 #app {
     display: flex;
     height: 100%;
