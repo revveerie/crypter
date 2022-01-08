@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from 'react-router-dom';
 
-import { optionsNews } from '../../helpers/axiosOptions.js';
+import { getOptionsNews } from '../../helpers/axiosOptions.js';
 import NewsCard from '../NewsCard/NewsCard.jsx';
 
 const NewsApp = () => {
@@ -18,8 +18,7 @@ const NewsApp = () => {
         setSearchNewsRequest(value);
     }
 
-    optionsNews.params.count = '10';
-    optionsNews.params.q = searchNewsRequest;
+    const optionsNews = getOptionsNews(30, searchNewsRequest);
 
     useEffect(()=>{
         setSearchNewsRequest(search || 'Cryptocurrencies');

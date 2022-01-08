@@ -4,15 +4,15 @@ import { useState, useEffect } from "react";
 
 import numberFormat from "../../helpers/numberFormat.js";
 import ExchangeCard from '../ExchangeCard/ExchangeCard.jsx';
-import { optionsExchange } from '../../helpers/axiosOptions.js';
+import { optionsExchanges } from '../../helpers/axiosOptions.js';
 
 const ExchangesApp = () => {
     const [exchangeList, setExchangeList] = useState([]);
     let cleanupFunction = false;
-      
-    useEffect(() => {   
-        axios.request(optionsExchange).then(function (response) {
-            if(!cleanupFunction) setExchangeList(response.data.data.coins);
+
+    useEffect(() => {
+        axios.request(optionsExchanges).then(function (response) {
+            if(!cleanupFunction) setExchangeList(response.data.data.exchanges);
         }).catch(function (error) {
             console.error(error);
         });
@@ -47,13 +47,15 @@ const ExchangesApp = () => {
                     {
                         exchangeList.map((exchange, index) => {
                             return (
-                                <div key={index} className='exchange-card'>
+                                <div key={index} className='exchange-card__wrap'>
                                     <ExchangeCard
                                         iconUrl={exchange.iconUrl}
                                         rank={exchange.rank}
                                         name={exchange.name}
                                         numberOfMarkets={exchange.numberOfMarkets}
-                                        volume24={numberFormat(Number(exchange["24hVolume"]), 1)}
+                                        volume24={numberFormat(Number(exchange["volume"]), 1)}
+                                        uuid={exchange.uuid}
+                                        description={exchange.description}
                                     />
                                 </div>
                             )

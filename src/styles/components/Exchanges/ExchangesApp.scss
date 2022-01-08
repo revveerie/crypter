@@ -11,28 +11,34 @@
     }
 }
 .exchange-card {
+    cursor: pointer;
+    &__wrap {
+        border: 1px solid #E2E2E8;
+        &:nth-child(2n) {
+            .exchange-card {
+                background: rgba(83, 185, 234, 0.3);
+            }
+        }
+        &:last-child {
+            border-bottom: 1px solid #E2E2E8;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        @media(max-width: 480px) {
+            &:nth-child(2) {
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                overflow: hidden;
+            }
+        }
+    }
     padding: 15px;
-    border: 1px solid #E2E2E8;
-    border-bottom: 0;
     transition: 300ms;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    &:nth-child(2n) {
-        background: rgba(83, 185, 234, 0.3);
-    }
-    @media(max-width: 480px) {
-        &:nth-child(2) {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-    }
-    &:last-child {
-        border-bottom: 1px solid #E2E2E8;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
     &_head {
+        border: 1px solid #E2E2E8;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         @media (max-width: 480px) {
@@ -150,4 +156,39 @@
             font-size: 14px;
         }
     }
+}
+
+.exchange__description {
+    padding: 10px;
+    a{
+        font-family: 'Helvetica';
+        font-weight: 400;
+        color: #53B9EA;
+    }
+    h2 {
+        font-family: 'Helvetica';
+        font-weight: 500;
+        color: #4C4C66;
+        font-size: 18px;
+        margin: 0 0 10px 0;
+    }
+    h3 {
+        font-family: 'Helvetica';
+        font-weight: 500;
+        color: #4C4C66;
+        font-size: 18px;
+        margin: 0 0 10px 0;
+    }
+    p {
+        font-family: 'Helvetica';
+        font-weight: 400;
+        color: #4C4C66;
+        margin: 0 0 10px 0;
+    }
+}
+.no-description {
+    font-family: 'Helvetica';
+    font-weight: 500!important;
+    color: #4C4C66;
+    font-size: 18px;
 }

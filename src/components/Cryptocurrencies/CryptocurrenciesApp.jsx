@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import { optionsCoins } from '../../helpers/axiosOptions.js';
+import { getOptionsCoins } from '../../helpers/axiosOptions.js';
 import CoinCard from '../CoinCard/CoinCard.jsx';
 
 const CryptocurrenciesApp = () => {
@@ -10,7 +10,7 @@ const CryptocurrenciesApp = () => {
     const [coinList, setCoinList] = useState([]);
     let cleanupFunction = false;
 
-    optionsCoins.params.limit = '100';
+    const optionsCoins = getOptionsCoins(100);
 
     useEffect(() => {
         axios.request(optionsCoins).then(function (response) {

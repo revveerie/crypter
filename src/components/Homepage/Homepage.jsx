@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 
-import { optionsCoins, optionsNews } from '../../helpers/axiosOptions.js';
+import { getOptionsCoins, getOptionsNews, optionsNews } from '../../helpers/axiosOptions.js';
 import numberFormat from "../../helpers/numberFormat.js";
 import CoinCard from '../CoinCard/CoinCard.jsx';
 import NewsCard from '../NewsCard/NewsCard.jsx';
@@ -14,6 +14,8 @@ const Homepage = () => {
     const [newsList, setNewsList] = useState([]);
     let cleanupFunction = false;
 
+    const optionsCoins = getOptionsCoins(10);
+    const optionsNews = getOptionsNews(10, 'Cryptocurencies');
     optionsCoins.params.limit = '10';
     optionsNews.params.count = '10';
 
