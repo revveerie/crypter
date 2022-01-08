@@ -1,17 +1,18 @@
 import React from "react";
 import { useEffect } from "react";
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import coinChangeColor from '../../helpers/coinChangeColor.js';
 
-const CoinCard = ({ name, iconUrl, price, change, symbol, coinrankingUrl }) => {
+const CoinCard = ({ name, iconUrl, price, change, symbol, coinrankingUrl, uuid }) => {
     useEffect(() => {
         coinChangeColor();
     });
     
     return (
         <>
-            <a href={coinrankingUrl} className="coin-card__link" target="_blank" rel="noreferrer">
+            <Link key={uuid} to={`/CoinPage/${uuid}`}>
                 <div className="coin-card__name">{name}</div>
                 <div className="coin-card__info-wrapper">
                     <div className="coin-card__icon">
@@ -27,7 +28,7 @@ const CoinCard = ({ name, iconUrl, price, change, symbol, coinrankingUrl }) => {
                         </div>
                     </div>
                 </div>
-            </a> 
+            </Link>
         </>
     )
 }

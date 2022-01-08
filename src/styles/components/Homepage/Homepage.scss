@@ -26,7 +26,7 @@
         color: #4C4C66;
         font-size: 30px;
         @media(max-width: 420px) {
-            margin: 0 0 25px 0;
+            margin: 0 0 10px 0;
         }
     }
     &__link {
@@ -39,8 +39,12 @@
         transition: 300ms;
         font-family: 'Helvetica';
         font-weight: 400;
+        display: block;
         &:hover {
             box-shadow: 0px 0px 42px rgba(243, 24, 115, .6);
+        }
+        @media (max-width: 420px) {
+            margin: 0 0 10px 0;
         }
     }
 }

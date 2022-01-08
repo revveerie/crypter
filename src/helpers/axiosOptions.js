@@ -58,3 +58,15 @@ export function getOptionsCoin(uuid)  {
       }
   }
 }
+
+export function getOptionsHistory(uuid, period)  {
+  return {
+      method: 'GET',
+      url: `https://coinranking1.p.rapidapi.com/coin/${uuid}/history`,
+      params: {timePeriod: `${period}`},
+      headers: {
+          'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
+          'x-rapidapi-key': '3327c598bbmsh9ee4085f61aad91p18cb75jsncdaeac2a2d8f'
+      }
+  }
+}

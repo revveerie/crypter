@@ -1,16 +1,10 @@
 import React from "react";
-import { useState } from "react";
 import PropTypes from 'prop-types';
 
 const ExchangeCard = ({ rank, name, numberOfMarkets , volume24, iconUrl, description }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const itemClickHandler = () => {
-        setIsOpen(!isOpen);
-    }
     return (
         <>
-            <div className="exchange-card" onClick={itemClickHandler}>
+            <div className="exchange-card">
                 <div className="exchange-card__column">
                     <div className="exchange-card__rank exchange-card__item">
                         <p className="exchange-card__rank-text">{rank}.</p>
@@ -34,14 +28,11 @@ const ExchangeCard = ({ rank, name, numberOfMarkets , volume24, iconUrl, descrip
                     </div>
                 </div>
             </div>
-            {isOpen
-                ? <div className='exchange__description'>
-                    {description
-                    ? <div dangerouslySetInnerHTML={{ __html: description }}></div>
-                    : <p className="no-description">There is no description about this coin</p>}
-                </div>
-                : null
-            }
+            <div className='exchange__description'>
+                {description
+                ? <div dangerouslySetInnerHTML={{ __html: description }}></div>
+                : <p className="no-description">There is no description about this coin</p>}
+            </div>
         </>
     )
 }

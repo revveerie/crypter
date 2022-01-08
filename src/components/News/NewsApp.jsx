@@ -10,7 +10,7 @@ const NewsApp = () => {
     const { search } = useParams();
     const [newsList, setNewsList] = useState([]);
     const [searchNewsRequest, setSearchNewsRequest] = useState(search || 'Cryptocurrencies');
-    const [searchCoinMask, setSearchCoinMask] = useState('');
+    const [searchCoin, setSearchCoin] = useState('');
     let cleanupFunction = false;
 
     function itemClickHandler(){
@@ -41,8 +41,8 @@ const NewsApp = () => {
                             id='search-input'
                             type='text'
                             placeholder='Coin news'
-                            value={searchCoinMask}
-                            onChange={(event) => setSearchCoinMask(event.target.value)}
+                            value={searchCoin}
+                            onChange={(event) => setSearchCoin(event.target.value)}
                         />
                         <button onClick={itemClickHandler} id="search-button">Search</button>
                     </div>

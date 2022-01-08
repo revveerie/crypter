@@ -7,6 +7,7 @@ import CryptocurrenciesApp from '../Cryptocurrencies/CryptocurrenciesApp.jsx';
 import ExchangesApp from '../Exchanges/ExchangesApp.jsx';
 import NewsApp from '../News/NewsApp.jsx';
 import Notfoundpage from '../NotFoundPage/NotFoundPage.jsx';
+import CoinPage from '../CoinPage/CoinPage.jsx';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Route path='/Cryptocurrencies' element={< CryptocurrenciesApp />} />
                 <Route path='/News' element={< NewsApp />}/>
                 <Route path='*' element={< Notfoundpage />} />
+                <Route path="/CoinPage/:coinId" element={< CoinPage />} />
             </Routes>
         </>
     );
