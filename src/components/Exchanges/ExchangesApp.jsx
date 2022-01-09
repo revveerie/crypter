@@ -23,6 +23,7 @@ const ExchangesApp = () => {
     useEffect(()=> {
         dropdown();
     })
+    
     return (
         <>
             <div className='exchange'>

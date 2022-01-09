@@ -19,6 +19,7 @@ const NewsCard = ({ newsName, newsUrl, newsDescription, publishedDate }) => {
         </>
     )
 }
+
 NewsCard.propTypes = {
     newsName: PropTypes.string.isRequired,
     newsUrl: PropTypes.string.isRequired,
@@ -26,5 +27,4 @@ NewsCard.propTypes = {
     publishedDate: PropTypes.string.isRequired,
 }
   
-
 export default NewsCard;

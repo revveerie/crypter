@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import coinChangeColor from '../../helpers/coinChangeColor.js';
 
-const CoinCard = ({ name, iconUrl, price, change, symbol, coinrankingUrl, uuid }) => {
+const CoinCard = ({ name, iconUrl, price, change, symbol, uuid }) => {
     useEffect(() => {
         coinChangeColor();
     });
@@ -32,6 +32,7 @@ const CoinCard = ({ name, iconUrl, price, change, symbol, coinrankingUrl, uuid }
         </>
     )
 }
+
 CoinCard.propTypes = {
     name: PropTypes.string.isRequired,
     iconUrl: PropTypes.string.isRequired,

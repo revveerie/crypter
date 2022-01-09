@@ -1,13 +1,18 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect, useRef } from "react";
+import { Line } from 'react-chartjs-2';
 import axios from "axios";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+
 import TimeInterval from '../TimeInterval/TimeInterval.jsx';
 import numberFormat from "../../helpers/numberFormat.js";
+import dateFormat from "../../helpers/dateFormat.js";
+import coinChangeColorP from "../../helpers/coinChangeColorP.js";
 import { getOptionsCoin, getOptionsHistory } from '../../helpers/axiosOptions.js';
+
 
 const CoinPage = () => {
     const { coinId } = useParams();
@@ -22,7 +27,7 @@ const CoinPage = () => {
 
     useEffect(() => {
         if (firstRender.current) {
-          firstRender.current = false;
+            firstRender.current = false;
         } else {
             axios.request(optionsHistory).then(function (response) {
                 if(!cleanupFunction) setCoinHitsory(response.data.data);
@@ -47,62 +52,33 @@ const CoinPage = () => {
         return () => cleanupFunction = true;
     }, [])
 
-    function dFormatter(milisecond) {
-        let epoch = new Date(0);
-        epoch.setSeconds(parseInt(milisecond));
-        var date = epoch.toISOString();
-        date = date.replace('T', ' ');
-        return date.split('.')[0].split(' ')[0] + ' ' + epoch.toLocaleTimeString().split(' ')[0];
-    }
+    useEffect(() => {
+        coinChangeColorP();
+    });
 
     const timeChangeHandler = (option) => {
         setTimeInterval(option)
     }
     
     const data = {
-        labels: coinHistory?.history?.map(history=>dFormatter(history.timestamp)),
+        labels: coinHistory?.history?.map(history=>dateFormat(history.timestamp)),
         datasets: [
-          {
-            backgroundColor: 'rgb(255 255 255)',
-            borderColor: 'rgb(83 185 234)',
-            label: 'Price (USD)',
-            fill: false,
-            lineTension: 0.5,
-            borderWidth: 1,
-            data: coinHistory?.history?.map(history=>history.price)
-          }
+            {
+                backgroundColor: 'rgb(255 255 255)',
+                borderColor: 'rgb(83 185 234)',
+                label: 'Price (USD)',
+                fill: false,
+                lineTension: 0.5,
+                borderWidth: 1,
+                data: coinHistory?.history?.map(history=>history.price)
+            }
         ]
-      };
+    };
 
-      const options = {
+    const options = {
         responsive: true,
         maintainAspectRatio: true
-      }
-
-    useEffect(() => {
-        function coinChangeColor () {
-            let value = document.querySelector('.coin-card__change').textContent;
-            let change = Number(value);
-            let coinChange = document.querySelector('.coin-card__change');
-                if (change < 0) {
-                    if (coinChange.classList.contains('change-green')) {
-                        coinChange.classList.remove('change-green');
-                        coinChange.classList.add('change-red');
-                    }
-                    else
-                        coinChange.classList.add('change-red');
-                }
-                else {
-                    if (coinChange.classList.contains('change-red')) {
-                        coinChange.classList.remove('change-red');
-                        coinChange.classList.add('change-green');
-                    }
-                    else
-                        coinChange.classList.add('change-green');
-                }
-        }
-        coinChangeColor();
-    });
+    }
       
     return (
         <>
@@ -196,9 +172,6 @@ const CoinPage = () => {
                 </div>
                 <div className="canvas">
                     <Line data={data} options={options} />
-                </div>
-                <div className="coin-info__links">
-                    .
                 </div>
             </div>
         </>

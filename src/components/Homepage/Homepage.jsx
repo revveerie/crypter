@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 
-import { getOptionsCoins, getOptionsNews, optionsNews } from '../../helpers/axiosOptions.js';
+import { getOptionsCoins, getOptionsNews } from '../../helpers/axiosOptions.js';
 import numberFormat from "../../helpers/numberFormat.js";
 import CoinCard from '../CoinCard/CoinCard.jsx';
 import NewsCard from '../NewsCard/NewsCard.jsx';

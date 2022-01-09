@@ -36,6 +36,7 @@ const ExchangeCard = ({ rank, name, numberOfMarkets , volume24, iconUrl, descrip
         </>
     )
 }
+
 ExchangeCard.propTypes = {
     rank: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,

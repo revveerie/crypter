@@ -34,6 +34,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         gap: 20px;
+        padding: 0 0 15px 0;
         margin: 0 0 40px 0;
         @media(max-width: 1770px) {
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -46,9 +47,13 @@
         }
         @media(max-width: 1024px) {
             grid-template-columns: 1fr 1fr 1fr;
+            margin: 0 0 25px 0;
         }
         @media(max-width: 840px) {
             grid-template-columns: 1fr 1fr;
+        }
+        @media(max-width: 690px) {
+            margin: 0 0 15px 0;
         }
         @media(max-width: 600px) {
             grid-template-columns: 1fr;
