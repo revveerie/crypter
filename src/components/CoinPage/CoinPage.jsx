@@ -13,6 +13,11 @@ import dateFormat from "../../helpers/dateFormat.js";
 import coinChangeColorP from "../../helpers/coinChangeColorP.js";
 import { getOptionsCoin, getOptionsHistory } from '../../helpers/axiosOptions.js';
 
+import PriceImg from '../../assets/images/price-tag.png';
+import MarketImgD from '../../assets/images/market.png';
+import ExchangeImgD from '../../assets/images/exchange-coin.png';
+import VolumeImgD from '../../assets/images/24hours.png';
+import MarketCapImgD from '../../assets/images/bar-chart.png';
 
 const CoinPage = () => {
     const { coinId } = useParams();
@@ -96,7 +101,7 @@ const CoinPage = () => {
                 <div className="stat-card__wrapper">
                     <div className="stat-card">
                         <div className="stat-card__image">
-                            <img src="../../assets/images/price-tag.png" alt="Price" />
+                            <img src={`../${PriceImg}`} alt="Price" />
                         </div>
                         <div className="stat-card__info">
                             <div className="stat-card__title">
@@ -109,7 +114,7 @@ const CoinPage = () => {
                     </div>
                     <div className="stat-card">
                         <div className="stat-card__image">
-                            <img src="../../assets/images/market.png" alt="Total markets" />
+                            <img src={`../${MarketImgD}`} alt="Total markets" />
                         </div>
                         <div className="stat-card__info">
                             <div className="stat-card__title">
@@ -122,7 +127,7 @@ const CoinPage = () => {
                     </div>
                     <div className="stat-card">
                         <div className="stat-card__image">
-                            <img src="../../assets/images/exchange-coin.png" alt="Total exchanges" />
+                            <img src={`../${ExchangeImgD}`} alt="Total exchanges" />
                         </div>
                         <div className="stat-card__info">
                             <div className="stat-card__title">
@@ -135,7 +140,7 @@ const CoinPage = () => {
                     </div>
                     <div className="stat-card">
                         <div className="stat-card__image">
-                            <img src="../../assets/images/24hours.png" alt="24h volume" />
+                            <img src={`../${VolumeImgD}`} alt="24h volume" />
                         </div>
                         <div className="stat-card__info">
                             <div className="stat-card__title">
@@ -148,7 +153,7 @@ const CoinPage = () => {
                     </div>
                     <div className="stat-card">
                         <div className="stat-card__image">
-                            <img src="../../assets/images/bar-chart.png" alt="Total market cap" />
+                            <img src={`../${MarketCapImgD}`} alt="Total market cap" />
                         </div>
                         <div className="stat-card__info">
                             <div className="stat-card__title">

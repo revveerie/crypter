@@ -8,6 +8,12 @@ import numberFormat from "../../helpers/numberFormat.js";
 import CoinCard from '../CoinCard/CoinCard.jsx';
 import NewsCard from '../NewsCard/NewsCard.jsx';
 
+import CoinImg from '../../assets/images/price-tag.png';
+import MarketImg from '../../assets/images/market.png';
+import ExchangeImg from '../../assets/images/exchange-coin.png';
+import VolumeImg from '../../assets/images/24hours.png';
+import MarketCapImg from '../../assets/images/bar-chart.png';
+
 const Homepage = () => {
     const [coinList, setCoinList] = useState([]);
     const [statsList, setStatsList] = useState([]);
@@ -46,7 +52,7 @@ const Homepage = () => {
                 <div className="stat-card__wrapper">
                     <div className="stat-card">
                         <div className="stat-card__image">
-                            <img src="../../assets/images/bitcoin.png" alt="Total coins" />
+                            <img src={CoinImg} alt="Total coins" />
                         </div>
                         <div className="stat-card__info">
                             <div className="stat-card__title">
@@ -59,7 +65,7 @@ const Homepage = () => {
                     </div>
                     <div className="stat-card">
                         <div className="stat-card__image">
-                            <img src="../../assets/images/market.png" alt="Total markets" />
+                            <img src={MarketImg} alt="Total markets" />
                         </div>
                         <div className="stat-card__info">
                             <div className="stat-card__title">
@@ -72,7 +78,7 @@ const Homepage = () => {
                     </div>
                     <div className="stat-card">
                         <div className="stat-card__image">
-                            <img src="../../assets/images/exchange-coin.png" alt="Total exchanges" />
+                            <img src={ExchangeImg} alt="Total exchanges" />
                         </div>
                         <div className="stat-card__info">
                             <div className="stat-card__title">
@@ -85,7 +91,7 @@ const Homepage = () => {
                     </div>
                     <div className="stat-card">
                         <div className="stat-card__image">
-                            <img src="../../assets/images/bar-chart.png" alt="Total market cap" />
+                            <img src={MarketCapImg} alt="Total market cap" />
                         </div>
                         <div className="stat-card__info">
                             <div className="stat-card__title">
@@ -98,7 +104,7 @@ const Homepage = () => {
                     </div>
                     <div className="stat-card">
                         <div className="stat-card__image">
-                            <img src="../../assets/images/24hours.png" alt="Total cryptvolume (24h)" />
+                            <img src={VolumeImg} alt="Total cryptvolume (24h)" />
                         </div>
                         <div className="stat-card__info">
                             <div className="stat-card__title">
