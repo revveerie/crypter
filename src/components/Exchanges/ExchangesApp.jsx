@@ -13,7 +13,7 @@ const ExchangesApp = () => {
 
     useEffect(() => {
         axios.request(optionsExchanges).then(function (response) {
-            if(!cleanupFunction) setExchangeList(response.data.data.exchanges);
+            if(!cleanupFunction) setExchangeList(response.data.data.coins);
         }).catch(function (error) {
             console.error(error);
         });
@@ -42,7 +42,7 @@ const ExchangesApp = () => {
                                 <p className="exchange-card__title-text">Name</p>
                             </div>
                             <div className="exchange-card__markets exchange-card__item">
-                                <p className="exchange-card__markets-text">Markets</p>
+                                <p className="exchange-card__markets-text">Market Cap</p>
                             </div>
                             <div className="exchange-card__volume exchange-card__item">
                                 <p className="exchange-card__volume-text">24h volume</p>
@@ -57,8 +57,8 @@ const ExchangesApp = () => {
                                         iconUrl={exchange.iconUrl}
                                         rank={exchange.rank}
                                         name={exchange.name}
-                                        numberOfMarkets={exchange.numberOfMarkets}
-                                        volume24={numberFormat(Number(exchange["volume"]), 1)}
+                                        marketCap={numberFormat(Number(exchange["marketCap"]), 1)}
+                                        volume24={numberFormat(Number(exchange["24hVolume"]), 1)}
                                         uuid={exchange.uuid}
                                         description={exchange.description}
                                     />

@@ -37,16 +37,17 @@ export function getOptionsNews (limit, query) {
 }
 
 export const optionsExchanges = {
-      method: 'GET',
-      url: 'https://coinranking1.p.rapidapi.com/exchanges',
-      params: {
-        limit: '100'
-    },
-      headers: {
-          'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-          'x-rapidapi-key': '7d7142ee90msh51e0c53239d7405p1f81d5jsn078463297446'
-      }
+  method: 'GET',
+  url: 'https://coinranking1.p.rapidapi.com/coins',
+  params: {
+    limit: '100'
+},
+  headers: {
+      'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
+      'x-rapidapi-key': '3327c598bbmsh9ee4085f61aad91p18cb75jsncdaeac2a2d8f'
+  }
 }
+
 
 export function getOptionsCoin(uuid)  {
   return {
