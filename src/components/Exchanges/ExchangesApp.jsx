@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import numberFormat from "../../helpers/numberFormat.js";
 import ExchangeCard from '../ExchangeCard/ExchangeCard.jsx';
 import { optionsExchanges } from '../../helpers/axiosOptions.js';
-import dropdown from '../../helpers/dropdown.js';
 
 const ExchangesApp = () => {
     const [exchangeList, setExchangeList] = useState([]);
@@ -19,10 +18,6 @@ const ExchangesApp = () => {
         });
         return () => cleanupFunction = true;
     }, []);
-
-    useEffect(()=> {
-        dropdown();
-    })
     
     return (
         <>
