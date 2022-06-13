@@ -1,6 +1,6 @@
 # 💸 Crypter
 
-![Crypter](https://user-images.githubusercontent.com/88598017/153285291-ad0b4115-3c68-444c-9f77-5b32485f4989.png)
+![Crypter](https://raw.githubusercontent.com/vvyysotskaya/vvyysotskaya/main/src/assets/images/crypter.png)
 
 ## Deploy
 
