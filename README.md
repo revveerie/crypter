@@ -4,7 +4,7 @@
 
 ## Deploy
 
-https://vvyysotskaya-crypter.herokuapp.com
+https://revveerie-crypter.netlify.app/
 
 ## Technologies used
 ![SASS](https://img.shields.io/badge/-SASS-090909?style=for-the-badge&logo=sass)
